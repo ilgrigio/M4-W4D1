@@ -23,7 +23,8 @@
   <body>
     <div class="container">
       <section class="section_border bg-warning">
-        <form action="">
+        <!-- Start form -->
+        <form id="p-form">
           <label for="fname" class="form-label">First name</label><br />
           <input
             type="text"
@@ -32,48 +33,33 @@
             name="fname"
             value=" "
           /><br />
-          <label for="lname" class="form-label">Last name</label><br />
-          <input
-            type="text"
-            class="form-control"
-            id="lname"
-            name="lname"
-            value=""
-          /><br />
           <label for="brand" class="form-label">Brand</label><br />
           <input
             type="text"
             class="form-control"
-            id="p-brand"
-            name="p-brand"
+            id="brand"
+            name="brand"
           /><br />
           <label for="price" class="form-label">Price €</label><br />
           <input
             type="number"
             class="form-control"
-            id="p-price"
-            name="p-price"
+            id="price"
+            name="price"
           /><br />
-          <label for="price" class="form-label">Description</label><br />
+          <label for="description" class="form-label">Description</label><br />
           <textarea
             class="form-control"
-            id="exampleFormControlTextarea1"
+            id="description"
             rows="3"
+            name="description"
           ></textarea>
-          <label for="price" class="form-label">Image URL</label><br />
-          <input
-            type="text"
-            class="form-control"
-            id="p-imgUrl"
-            name="p-imgUrl"
-          />
+          <label for="imgUrl" class="form-label">Image URL</label><br />
+          <input type="text" class="form-control" id="imgUrl" name="imgUrl" />
           <br /><br />
-          <input
-            id="submit"
-            type="submit"
-            value="Aggiungi prodotto"
-            class="btn btn-primary"
-          />
+          <button class="btn btn-success" id="submit" type="submit">
+            Add Product
+          </button>
         </form>
       </section>
     </div>

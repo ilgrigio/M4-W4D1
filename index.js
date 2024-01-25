@@ -74,17 +74,37 @@ let myProducts = [
   },
 ];
 
-// fetch("https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/", {
-//   headers: {
-//     Authorization:
-//       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMjdiZjkxM2Y2NTAwMThkMDk1M2UiLCJpYXQiOjE3MDYxNzQzOTksImV4cCI6MTcwNzM4Mzk5OX0.1h0Olg_-10fm4W2_MZIaF0czaEWpLqW0gQF5hrqj138",
-//   },
-// });
+import { sendPost, products, getPost } from "./fetch.js";
 
-import { sendPost } from "./fetch.js";
-
-const sbmButton = document.getElementById("submit");
-sbmButton.addEventListener("submit", (ev) => {
-  sendPost();
+const createProduct = (ev) => {
   ev.preventDefault();
+  const name = document.getElementById("fname").value;
+  const description = document.getElementById("description").value;
+  const brand = document.getElementById("brand").value;
+  const imageUrl = document.getElementById("imgUrl").value;
+  const price = parseFloat(document.getElementById("price").value);
+
+  console.log(name);
+
+  const dataProduct = {
+    name: name,
+    description: description,
+    brand: brand,
+    imageUrl: imageUrl,
+    price: price,
+  };
+  sendPost(dataProduct);
+  console.log(dataProduct);
+};
+
+const sbmButton = document.getElementById("p-form");
+sbmButton.addEventListener("submit", (event) => {
+  createProduct(event);
 });
+
+const showProducts = async () => {
+  const product = await getPost();
+  console.log(product);
+};
+
+showProducts();
