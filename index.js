@@ -108,3 +108,4 @@ const showProducts = async () => {
 };
 
 showProducts();
+window.location.replace("./front.html");
