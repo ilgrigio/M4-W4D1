@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.section_border {
+  width: 40%;
+  border: 1px solid #e4e7eb;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.card img {
+  height: 500px;
+  width: 350px;
+  object-fit: cover;
+}
