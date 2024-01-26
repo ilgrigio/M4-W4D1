@@ -75,7 +75,6 @@ let myProducts = [
 ];
 
 import { sendPost, products, getPost } from "./fetch.js";
-
 const createProduct = (ev) => {
   ev.preventDefault();
   const name = document.getElementById("fname").value;
@@ -106,6 +105,9 @@ const showProducts = async () => {
   const product = await getPost();
   console.log(product);
 };
-
 showProducts();
-window.location.replace("./front.html");
+
+const redirectB = document.getElementById("b_redirect");
+redirectB.addEventListener("click", () =>
+  window.location.replace("./front.html")
+);
