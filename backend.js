@@ -74,7 +74,7 @@
 //   },
 // ];
 
-import { sendPost, products, getPost } from "./fetch.js";
+import { sendPost, getPost } from "./fetch.js";
 const createProduct = (ev) => {
   ev.preventDefault();
   const name = document.getElementById("fname").value;
@@ -91,7 +91,7 @@ const createProduct = (ev) => {
     price: price,
   };
   sendPost(dataProduct);
-  alert("Hai aggiunto alla vetrina " + dataProduct);
+  alert("Hai aggiunto alla vetrina " + dataProduct["name"]);
   window.location.assign("./frontend.html");
 };
 
@@ -104,6 +104,7 @@ const showProducts = async () => {
 };
 showProducts();
 
+// Redirect
 const redirectB = document.getElementById("b_redirect");
 redirectB.addEventListener("click", () =>
   window.location.replace("./frontend.html")

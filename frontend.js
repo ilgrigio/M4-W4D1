@@ -13,9 +13,9 @@ const deleteProduct = async (productId) => {
   // window.location.assign("./frontend.html");
 };
 
-const editProduct = async (productId) => {
+const editProduct = async (productId, updateProduct) => {
   try {
-    await editPost(productId);
+    await editPost(productId, updateProduct);
     console.log(`Product ${productId} edited.`);
   } catch (error) {
     console.error(`Failed to edit product ${productId}: ${error}`);
@@ -51,14 +51,18 @@ const showRoom = async () => {
     document.body.prepend(navbar);
     showContainer.innerHTML = htmlShow;
 
-    const deleteButton = document.getElementById(`delete${index}`);
-    deleteButton.addEventListener("click", () => {
-      deleteProduct(product["_id"]);
+    const deleteButtons = document.querySelectorAll(`#delete${index}`);
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        deleteProduct(product["_id"]);
+      });
     });
 
-    const editButton = document.getElementById(`edit${index}`);
-    editButton.addEventListener("click", () => {
-      editProduct(product["_id"]);
+    const editButtons = document.querySelectorAll(`#edit${index}`);
+    editButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        editProduct(product["_id"], updateProduct);
+      });
     });
   });
 
