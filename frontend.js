@@ -26,6 +26,10 @@ const editProduct = async (productId) => {
 const showRoom = async () => {
   const roomProduct = await getPost();
   let htmlShow = "";
+  const navbar = document.createElement("nav");
+  const att = document.createAttribute("class");
+  att.value = "navbar bg-body-tertiary";
+
   roomProduct.map((product, index) => {
     htmlShow += `
     <div class="card">
@@ -43,6 +47,8 @@ const showRoom = async () => {
         </div>
     </div>
   </div>`;
+
+    document.body.prepend(navbar);
     showContainer.innerHTML = htmlShow;
 
     const deleteButton = document.getElementById(`delete${index}`);

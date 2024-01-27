@@ -91,7 +91,7 @@ const createProduct = (ev) => {
     price: price,
   };
   sendPost(dataProduct);
-  console.log(dataProduct);
+  alert("Hai aggiunto alla vetrina " + dataProduct);
   window.location.assign("./frontend.html");
 };
 
