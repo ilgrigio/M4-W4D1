@@ -65,7 +65,7 @@ export const deletePost = async (productId) => {
   }
 };
 // Fetch PUT
-export const editPost = async (productId) => {
+export const editPost = async (productId, dataProduct) => {
   try {
     const response = await fetch(url + productId, {
       method: "PUT",
