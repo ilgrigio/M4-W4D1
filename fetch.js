@@ -1,5 +1,4 @@
 export let products = [];
-
 export const url = "https://striveschool-api.herokuapp.com/api/product/";
 
 // Fetch POST
@@ -66,7 +65,7 @@ export const deletePost = async (productId) => {
   }
 };
 // Fetch PUT
-export const editPost = async (productId, updateProduct) => {
+export const editPost = async (productId) => {
   try {
     const response = await fetch(url + productId, {
       method: "PUT",
@@ -75,7 +74,7 @@ export const editPost = async (productId, updateProduct) => {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMjdiZjkxM2Y2NTAwMThkMDk1M2UiLCJpYXQiOjE3MDYxNzQzOTksImV4cCI6MTcwNzM4Mzk5OX0.1h0Olg_-10fm4W2_MZIaF0czaEWpLqW0gQF5hrqj138",
       },
-      body: JSON.stringify(updateProduct),
+      body: JSON.stringify(dataProduct),
     });
     console.log(response);
     if (!response.ok) {
