@@ -152,9 +152,11 @@ const showRoom = async () => {
           >
             Close
           </button>
+
           <button
             type="button"
             class="btn btn-primary"
+            data-target="editModal${index}"
             id="saveChanges${index}"
           >
             Save changes
@@ -168,12 +170,29 @@ const showRoom = async () => {
     showContainer.innerHTML = productCards;
 
     const deleteButtons = document.querySelectorAll(`.delete`);
-    deleteButtons.forEach((productId) => {
-      productId.addEventListener("click", () => {
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        // Ottieni l'indice dal button id
+        const index = button.id.replace("delete", "");
+        // Usa l'indice per ottenere il prodotto corrispondente
+        const product = roomProduct[index];
+        console.log(`Id del del pulsante: delete${index}`);
+        console.log(`Indice del prodotto: ${index}`);
         deleteProduct(product["_id"]);
         alert(`Hai rimosso ${product["name"]}`);
       });
     });
+    // const deleteButtons = document.querySelectorAll(`.delete`);
+    // deleteButtons.forEach((productId) => {
+    //   productId.addEventListener("click", () => {
+    //     console.log(`Id del del pulsante: delete${index}`);
+    //     console.log(`Indice del prodotto: ${index}`);
+    //     deleteProduct(product["_id"]);
+    //     alert(`Hai rimosso ${product["name"]}`);
+    //   });
+    // });
+
+    // console.log(product["_id"]);
 
     const editButtons = document.querySelectorAll(`.edit`);
     editButtons.forEach((button) => {
@@ -195,7 +214,7 @@ const showRoom = async () => {
       });
     });
   });
+  // Fine .map
 };
-// Fine .map
 console.log(showContainer);
 showRoom();
