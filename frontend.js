@@ -21,8 +21,6 @@ const editProduct = async (productId, dataProduct) => {
   } catch (error) {
     console.error(`Failed to edit product ${productId}: ${error}`);
   }
-
-  // window.location.assign("./index.html");
 };
 
 // Create Navbar
@@ -61,7 +59,6 @@ const navLinks = links.map((link) => {
 navLinks.forEach((link) => {
   navbar.append(link);
 });
-
 document.body.prepend(navbar);
 
 const showRoom = async () => {
@@ -82,19 +79,21 @@ const showRoom = async () => {
           class="edit btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#editModal${index}"
-        >
-         Edit
+        >Edit
         </button>
+
         <button class="btn btn-warning" id="details${index}">
-          <a
-            href="/details.html?id=${product[`_id`]}"
-            >Dettagli</a
-          >
+        <a
+        href="/details.html?id=${product[`_id`]}"
+        >Dettagli</a
+        >
         </button>
         <button class="delete btn btn-danger" id="delete${index}">Delete</button>
-      </div>
-    </div>
-  <!-- Edit Modal -->
+        </div>
+        </div>
+
+        <!-- Edit Modal -->
+       
     <div class="modal fade" id="editModal${index}" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -183,9 +182,9 @@ const showRoom = async () => {
         editProduct(product["_id"]);
       });
     });
-    document
-      .getElementById(`saveChanges${index}`)
-      .addEventListener("click", () => {
+    const saveButtons = document.querySelectorAll(`button[id^="saveChanges"]`);
+    saveButtons.forEach((saveButton) => {
+      saveButton.addEventListener("click", () => {
         const updatedDataProduct = {
           name: document.getElementById(`editName${index}`).value,
           brand: document.getElementById(`editBrand${index}`).value,
@@ -193,15 +192,11 @@ const showRoom = async () => {
           description: document.getElementById(`editDescription${index}`).value,
           imageUrl: document.getElementById(`editImageUrl${index}`).value,
         };
-
         editProduct(product["_id"], updatedDataProduct);
       });
+    });
   });
-  // Mark this button as having an event listener
-  button.setAttribute("data-hasEventListener", "true");
 };
 // Fine .map
-
 console.log(showContainer);
-
 showRoom();

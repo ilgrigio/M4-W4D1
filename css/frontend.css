@@ -40,7 +40,6 @@ h1 {
 
 .card:hover {
   box-shadow: 5px 5px 10px 0px rgb(0, 0, 0, 0.08);
-  transform: scale(1.01);
 }
 
 .card img {
@@ -51,4 +50,13 @@ h1 {
 
 button a {
   text-decoration: none;
+}
+
+.modal {
+  overflow-y: auto;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
 }

@@ -1,5 +1,6 @@
 import { sendPost, getPost } from "./fetch.js";
 
+let dataProduct;
 const createProduct = (ev) => {
   ev.preventDefault();
   const name = document.getElementById("fname").value;
@@ -8,19 +9,34 @@ const createProduct = (ev) => {
   const imageUrl = document.getElementById("imgUrl").value;
   const price = parseFloat(document.getElementById("price").value);
 
-  const dataProduct = {
+  dataProduct = {
     name: name,
     description: description,
     brand: brand,
     imageUrl: imageUrl,
     price: price,
   };
-  sendPost(dataProduct);
-  alert("Hai aggiunto alla vetrina " + dataProduct["name"]);
+  if (!name || !description || !brand || !imageUrl || !price) {
+    alert("Per favore, completa tutti i campi del form.");
+  } else {
+    sendPost(dataProduct);
+    alert(
+      "Il prodotto " +
+        dataProduct.name +
+        " è stato aggiunto con successo alla vetrina!"
+    );
+    window.location.replace("./frontend.html");
+  }
 };
+// Redirect
+const redirectButton = document.getElementById("b_redirect");
+redirectButton.addEventListener("click", () => {
+  window.location.href = "./frontend.html";
+});
 
 const sbmButton = document.getElementById("p-form");
 sbmButton.addEventListener("submit", createProduct);
+
 // window.location.assign("./frontend.html");
 
 const showProducts = async () => {
@@ -28,9 +44,3 @@ const showProducts = async () => {
   console.log(product);
 };
 showProducts();
-
-// Redirect
-const redirectB = document.getElementById("b_redirect");
-redirectB.addEventListener("click", () =>
-  window.location.replace("./frontend.html")
-);
