@@ -93,58 +93,57 @@ const showRoom = async () => {
         </div>
 
         <!-- Edit Modal -->
-       
-    <div class="modal fade" id="editModal${index}" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-         <div class="modal-header">
-          <h5 class="modal-title">Edit Product</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-         </div>
-        <div class="modal-body">
+        <div class="modal fade" id="editModal${index}" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Product</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+          <div class="modal-body">
           <!-- Add your edit form here -->
-          <form id="editForm${index}">
-            <label for="editName${index}">Name:</label>
-            <input
-              type="text"
-              id="editName${index}"
-              name="name"
-              value="${product.name}"
-            />
-            <label for="editBrand${index}">Brand:</label>
-            <input
-              type="text"
-              id="editBrand${index}"
-              name="brand"
-              value="${product.brand}"
-            />
-            <label for="editPrice${index}">Price:</label>
-            <input
-              type="text"
-              id="editPrice${index}"
-              name="price"
-              value="${product.price}"
-            />
-            <label for="editDescription${index}">Description:</label>
-            <input
-              type="text"
-              id="editDescription${index}"
-              name="description"
-              value="${product.description}"
-            />
-            <label for="editImageUrl${index}">ImageUrl:</label>
-            <input
-              type="text"
-              id="editImageUrl${index}"
-              name="imageUrl"
-              value="${product.imageUrl}"
-            />
-          </form>
-        </div>
+            <form id="editForm${index}">
+              <label for="editName${index}">Name:</label>
+              <input
+                type="text"
+                id="editName${index}"
+                name="name"
+                value="${product.name}"
+              />
+              <label for="editBrand${index}">Brand:</label>
+              <input
+                type="text"
+                id="editBrand${index}"
+                name="brand"
+                value="${product.brand}"
+              />
+              <label for="editPrice${index}">Price:</label>
+              <input
+                type="text"
+                id="editPrice${index}"
+                name="price"
+                value="${product.price}"
+              />
+              <label for="editDescription${index}">Description:</label>
+              <input
+                type="text"
+                id="editDescription${index}"
+                name="description"
+                value="${product.description}"
+              />
+              <label for="editImageUrl${index}">ImageUrl:</label>
+              <input
+                type="text"
+                id="editImageUrl${index}"
+                name="imageUrl"
+                value="${product.imageUrl}"
+              />
+            </form>
+          </div>
         <div class="modal-footer">
           <button
             type="button"

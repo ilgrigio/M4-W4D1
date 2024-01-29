@@ -82,7 +82,7 @@ export const editPost = async (productId, dataProduct) => {
       throw new Error(message);
     }
     const product = await response.json();
-    console.log(`Product ${productId} edited.`);
+    // console.log(`Product ${productId} edited.`);
     return product;
   } catch (error) {
     console.error(`Failed to edit product ${productId}: ${error}`);
