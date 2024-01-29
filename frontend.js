@@ -19,7 +19,7 @@ const editProduct = async (productId, dataProduct) => {
     await editPost(productId, dataProduct);
     setTimeout(function () {
       window.location.reload();
-    }, 2000);
+    }, 1000);
   } catch (error) {
     console.error(`Failed to edit product ${productId}: ${error.message}`);
   }

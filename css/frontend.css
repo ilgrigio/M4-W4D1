@@ -1,7 +1,12 @@
+body {
+  background-color: #1c1c1c !important;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 12px;
 }
 
 h1 {
@@ -12,10 +17,13 @@ h1 {
   text-shadow: 1px 2px 3px black;
 }
 
-.navbar {
+.navbar.navbar-expand {
   background-color: rgb(28, 28, 28);
   color: white;
   padding: 0;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
 }
 
 .navbar img {
@@ -24,7 +32,7 @@ h1 {
 
 .navbar a {
   margin-inline: 10px;
-  padding: 5px;
+  padding: 7px;
 }
 
 .navbar a:hover {
@@ -36,10 +44,11 @@ h1 {
   margin-block-start: 15px;
   width: min-content;
   transition: 0.3s;
+  border: none !important;
 }
 
 .card:hover {
-  box-shadow: 5px 5px 10px 0px rgb(0, 0, 0, 0.08);
+  box-shadow: 0px 1px 12px 2px rgba(255, 255, 255, 0.7);
 }
 
 .card img {
@@ -50,6 +59,8 @@ h1 {
 
 button a {
   text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px 2px #1c1c1c;
 }
 
 .modal {

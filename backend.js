@@ -1,7 +1,7 @@
 import { sendPost, getPost } from "./fetch.js";
 
 let dataProduct;
-const createProduct = (ev) => {
+export const createProduct = (ev) => {
   ev.preventDefault();
   const name = document.getElementById("fname").value;
   const description = document.getElementById("description").value;

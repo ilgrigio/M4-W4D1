@@ -1,6 +1,26 @@
+body {
+  background-color: #1c1c1c !important;
+}
+
+h1 {
+  color: whitesmoke !important;
+  text-align: center;
+  background-color: #157347;
+  padding: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
 .container {
   display: flex;
   justify-content: center;
+  margin-block-start: 45px;
+}
+
+.section {
+  border: none;
 }
 
 .section_border {
