@@ -37,8 +37,6 @@ redirectButton.addEventListener("click", () => {
 const sbmButton = document.getElementById("p-form");
 sbmButton.addEventListener("submit", createProduct);
 
-// window.location.assign("./frontend.html");
-
 const showProducts = async () => {
   const product = await getPost();
   console.log(product);

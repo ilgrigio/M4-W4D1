@@ -1,7 +1,7 @@
 import { getPost, deletePost, editPost } from "./fetch.js";
-// import { createProduct } from "./backend.js";
 
 const showContainer = document.querySelector(".container");
+
 // Create function to delete product
 const deleteProduct = async (productId) => {
   try {
@@ -17,9 +17,11 @@ const deleteProduct = async (productId) => {
 const editProduct = async (productId, dataProduct) => {
   try {
     await editPost(productId, dataProduct);
-    // console.log(`Product ${productId} edited.`);
+    setTimeout(function () {
+      window.location.reload();
+    }, 2000);
   } catch (error) {
-    console.error(`Failed to edit product ${productId}: ${error}`);
+    console.error(`Failed to edit product ${productId}: ${error.message}`);
   }
 };
 
@@ -33,7 +35,6 @@ const links = [
     alt: "Icona del controller di gioco",
   },
   { href: "./index.html", text: "Aggiungi Gioco" },
-  { href: "#", text: "Link 3" },
 ];
 
 const navLinks = links.map((link) => {
@@ -63,6 +64,7 @@ document.body.prepend(navbar);
 
 const showRoom = async () => {
   const roomProduct = await getPost();
+
   let productCards = "";
 
   // Start .map from get
@@ -154,6 +156,7 @@ const showRoom = async () => {
           </button>
 
           <button
+          data-bs-dismiss="modal"
             type="button"
             class="btn btn-primary"
             data-target="editModal${index}"
@@ -172,9 +175,9 @@ const showRoom = async () => {
     const deleteButtons = document.querySelectorAll(`.delete`);
     deleteButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        // Ottieni l'indice dal button id
+        // Get index from id button
         const index = button.id.replace("delete", "");
-        // Usa l'indice per ottenere il prodotto corrispondente
+        // Use the index to get the corresponding product
         const product = roomProduct[index];
         console.log(`Id del del pulsante: delete${index}`);
         console.log(`Indice del prodotto: ${index}`);
@@ -182,27 +185,19 @@ const showRoom = async () => {
         alert(`Hai rimosso ${product["name"]}`);
       });
     });
-    // const deleteButtons = document.querySelectorAll(`.delete`);
-    // deleteButtons.forEach((productId) => {
-    //   productId.addEventListener("click", () => {
-    //     console.log(`Id del del pulsante: delete${index}`);
-    //     console.log(`Indice del prodotto: ${index}`);
-    //     deleteProduct(product["_id"]);
-    //     alert(`Hai rimosso ${product["name"]}`);
-    //   });
-    // });
-
-    // console.log(product["_id"]);
-
+    // Edit button
     const editButtons = document.querySelectorAll(`.edit`);
     editButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        editProduct(product["_id"]);
+        // editProduct(product["_id"]);
       });
     });
+    // Save Modal button
     const saveButtons = document.querySelectorAll(`button[id^="saveChanges"]`);
     saveButtons.forEach((saveButton) => {
       saveButton.addEventListener("click", () => {
+        const index = saveButton.id.replace("saveChanges", "");
+        const product = roomProduct[index];
         const updatedDataProduct = {
           name: document.getElementById(`editName${index}`).value,
           brand: document.getElementById(`editBrand${index}`).value,
@@ -211,10 +206,11 @@ const showRoom = async () => {
           imageUrl: document.getElementById(`editImageUrl${index}`).value,
         };
         editProduct(product["_id"], updatedDataProduct);
+        // window.location.reload();
       });
     });
   });
-  // Fine .map
+  // End .map
 };
 console.log(showContainer);
 showRoom();
